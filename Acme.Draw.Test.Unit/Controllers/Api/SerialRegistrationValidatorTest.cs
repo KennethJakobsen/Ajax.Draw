@@ -50,5 +50,16 @@ namespace Acme.Draw.Test.Unit.Application.Validation
             response.ShouldBeOfType<BadRequestResult>();
         }
 
+        [TestMethod]
+        public async Task RegistrationController_Register_MODEL_NOT_VALID()
+        {
+
+            _regValidator.Setup(r => r.CanEnterSerialAsync(It.IsAny<string>())).ReturnsAsync(true);
+            _sut.ModelState.AddModelError("Email", "Email is not valid");
+            var response = await _sut.EnterRegistration(new EnterRegistrationRequest());
+        
+            response.ShouldBeOfType<BadRequestResult>();
+        }
+
     }
 }

@@ -24,10 +24,16 @@ namespace Acme.Draw.Core.Controllers.Api
         [HttpPost]
         public async Task<IActionResult> EnterRegistration([FromBody]EnterRegistrationRequest enterSerial)
         {
-            if (!await _validator.CanEnterSerialAsync(enterSerial.Serial))
-                return BadRequest();
-            await _registrationRepository.SaveRegistrationAsync(enterSerial.ToRegistration());
-            return Ok();
+            
+            if (ModelState.IsValid)
+            {
+                if (!await _validator.CanEnterSerialAsync(enterSerial.Serial))
+                    return BadRequest();
+                await _registrationRepository.SaveRegistrationAsync(enterSerial.ToRegistration());
+                return Ok();
+            }
+            return BadRequest();
+            
         }
 
         [Route("page/{page:int}/amount/{amount:int}")]
