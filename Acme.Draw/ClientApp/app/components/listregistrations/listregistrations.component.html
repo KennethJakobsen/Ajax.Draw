@@ -1,0 +1,37 @@
+<h1>Registrations</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Serial</td>
+            <td>Registered date</td>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Date of birth</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reg of page?.rows ">
+            <td>{{reg.serial}}</td>
+            <td>{{reg.registered | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+            <td>{{reg.firstName}}</td>
+            <td>{{reg.lastName}}</td>
+            <td>{{reg.email}}</td>
+            <td>{{reg.phone}}</td>
+            <td>{{reg.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7">
+                <div class="page-controls">
+                    <a [hidden]="!showPrev" (click)="previousPage()"><span class="glyphicon glyphicon-step-backward"></span></a>
+                    <span>{{page?.pageNumber}}</span>
+                    <a [hidden]="!showNext" (click)="nextPage()"><span class="glyphicon glyphicon-step-forward"></span></a>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+

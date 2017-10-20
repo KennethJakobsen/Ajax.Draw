@@ -1,0 +1,46 @@
+<h1>Enter the Acme Product Draw</h1>
+<p>Please enter you info below to win amazing prizes!</p>
+<form (ngSubmit)="register()" #registrationform="ngForm">
+    <p>
+        <label>
+            <span>Serial</span>
+            <input type="text" [(ngModel)]="registration.Serial" (change)="validateSerial()" required name="serial" #serial="ngModel" pattern="^[0-9a-f]{8}-{1}[0-9a-f]{4}-{1}[0-9a-f]{4}-{1}[0-9a-f]{4}-{1}[0-9a-f]{12}$" [ngClass]="{serialok: serialStatus == statusType.Valid}"/>
+            <em *ngIf="serialStatus == statusType.NotValid && !serial.pristine">Serial number is not valid or has been entered too many times!</em>
+            <em [hidden]="!serial.hasError('pattern')">Serial is not in the correct format please check again!</em>
+            
+        </label>
+        <label>
+            <span>First name</span>
+            <input type="text" [(ngModel)]="registration.Firstname" required name="firstname" #firstname="ngModel"  pattern="[a-zA-Z][a-zA-Z ]+"/>
+           
+        </label>
+        
+        <label>
+            <span>Lastname</span>
+            <input type="text" [(ngModel)]="registration.Lastname" required name="lastname" #lastname="ngModel" />            
+        </label>
+        <label>
+            <span>Email</span>
+            <input type="email" [(ngModel)]="registration.Email" required  name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+            <em [hidden]="!email.hasError('pattern')">Email is not in the correct format please check again!</em>
+        </label>
+        
+        <label>
+            <span>Phone number</span>
+            <input type="text" [(ngModel)]="registration.Phone" required  name="phone" #phone="ngModel"/>
+            
+        </label>
+      
+        <label>
+            <span>Date of birth</span>
+            <input type="date" [(ngModel)]="registration.DateOfBirth" required name="dob" #dob="ngModel" />
+            
+        </label>
+        
+
+        <button type="submit" *ngIf="!registrationAccepted" [disabled]="!registrationform.form.valid || serialStatus == statusType.NotValid">Enter</button> 
+
+     
+    </p>
+</form>
+

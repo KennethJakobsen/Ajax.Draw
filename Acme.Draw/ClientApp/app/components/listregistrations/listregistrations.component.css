@@ -1,0 +1,13 @@
+thead {
+    font-weight: 700;
+}
+
+table
+
+{
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+.page-controls{
+    text-align: center;
+}
