@@ -10,6 +10,11 @@ namespace Acme.Draw.Core.Integration.Persistence
 {
     public class SerialRepository : ISerialRepository
     {
+        /// <summary>
+        /// Gets ar serial by the serial it self
+        /// </summary>
+        /// <param name="serial">string serial</param>
+        /// <returns>serial entity</returns>
         public async Task<Serial> GetSerialAsync(string serial)
         {
             using (var db = new AcmeDrawDatabase())

@@ -20,15 +20,8 @@ namespace Acme.Draw.Core.IoC
             _container.Register<ISerialRegistrationValidator, SerialRegistrationValidator>();
             _container.Register<ISerialRepository, SerialRepository>();
             _container.Register<ISerialRegistrationRepository, SerialRegistrationRepository>();
-            _container.Register<OrmSettings>();
-            _container.Register<AcmeSettings>();
-
         }
 
-        private void CreateDatabase()
-        {
-            
-        }
 
         public IServiceContainer Container => _container;
 

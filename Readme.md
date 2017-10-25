@@ -2,8 +2,14 @@
 
 To setup the draw website and integration tests we first need to run the following Sql-files on your local SqlExpress with integrated security
 ```
-/Acme.Draw/Acme.Draw.Core/Sql/CreateSqlEntities.sql
-/Acme.Draw/Acme.Draw.Core/Sql/CreateSqlEntitiesForTests.sql
+CreateSqlEntities.sql
+CreateSqlEntitiesForTests.sql
+´´´
+
+(Optional) registrations :
+´´´
+DummyData.sql
+
 ```
 Next we need to install node modules in the ```Acme.Draw/Acme.draw``` folder
 ```

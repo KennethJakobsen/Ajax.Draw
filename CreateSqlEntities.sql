@@ -1,4 +1,4 @@
-﻿CREATE DATABASE AcmeDraw
+CREATE DATABASE AcmeDraw
 GO
 USE AcmeDraw
 GO
