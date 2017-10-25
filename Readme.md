@@ -4,10 +4,10 @@ To setup the draw website and integration tests we first need to run the followi
 ```
 CreateSqlEntities.sql
 CreateSqlEntitiesForTests.sql
-´´´
+```
 
 (Optional) registrations :
-´´´
+```
 DummyData.sql
 
 ```
